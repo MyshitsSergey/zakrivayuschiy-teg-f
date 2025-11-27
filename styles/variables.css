@@ -9,5 +9,7 @@
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, transparent 2px 4px),
   linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%); /*#e7e7e7 закрепляется на первых 0.01%, затем начинается затемнение.*/
   --main-color: #000;
+  --main-background-color:#fff;
+  --block-size-wigth: clamp(375px, calc(0px + 100vw), 700px);
 
 }

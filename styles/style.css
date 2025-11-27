@@ -11,14 +11,92 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
-  font-family: var(--font-main),sans-serif;
+  font-family: var(--font-accent),sans-serif;
   background-image: var(--main-gradient);
   background-size: cover;
-  background-attachment: fixed
+  background-attachment: fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
 }
 
+/*Секция Хедер*/
 .header {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  width: var(--block-size-wigth);
+  min-height: 327px;
+  margin: 0 auto;
+  margin-block: 100px;
+  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  background: var(--main-background-color, rgba(255, 255, 255, 1));
+}
+
+.header-title {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: 49px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.header-text {
+  justify-self: center;
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: 14px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: min-content;
+  justify-content: center;
+  gap: 52px;
+}
+
+/*Cозд карточки*/
+.section__content {
+  display: grid;
+  justify-content: center;
   
+  width: var(--block-size-wigth);
+  min-height: 785px;
+  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  background: var(--main-background-color, rgba(255, 255, 255, 1));
+}
+
+.section__title {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: left;
+  padding: 4px 10px;
+}
+
+.section__img {
+  width: 100%;
+}
+
+.section__text {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  padding: 25px;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  padding: 9px 17px 9px 17px;
+  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  background: var(--main-background-color, rgba(255, 255, 255, 1));
+  justify-self: right;
 }
