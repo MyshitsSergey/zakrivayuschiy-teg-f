@@ -13,4 +13,12 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-main),sans-serif;
+  background-image: var(--main-gradient);
+  background-size: cover;
+  background-attachment: fixed
+}
+
+.header {
+  
 }
