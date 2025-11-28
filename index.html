@@ -26,15 +26,20 @@
         <p class="section__text">Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.</p>
         <p class=" section__text">Место для ваших воспоминаний о начале обучения.</p>
         
-        <button class="card__icon-button">
-          <svg class="like-icon" viewBox="0 0 21 21" width="24" height="24">
-            <use href="./images/svg/floppy-svg.svg"></use>
-          </svg>
-        </button>
-        
-        <button class="card__like-button">
-          <span class="button__text">Like</span>
-        </button>
+        <div class="buttons">
+         <button class="card__icon-button">
+            <svg class="like-icon is-liked" xmlns="http://www.w3.org/2000/svg" width="27" height="24" fill="none" viewBox="0 0 27 24" aria-hidden="true">
+              <path fill="#000" d="M6 0H3v3h3V0Zm3 0H6v3h3V0ZM3 3H0v3h3V3Zm0 3H0v3h3V6Zm0 3H0v3h3V9Zm9-9H9v3h3V0ZM6 12H3v3h3v-3Zm3 3H6v3h3v-3Zm3 3H9v3h3v-3Zm9-18h3v3h-3V0Zm-3 0h3v3h-3V0Zm6 3h3v3h-3V3Zm0 3h3v3h-3V6Zm0 3h3v3h-3V9Zm-9-9h3v3h-3V0Zm6 12h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm-3 3h3v3h-3v-3Zm0-15h-3v3h3V3Zm0 18h-3v3h3v-3Z"/>
+            </svg>
+          </button>
+          <button class="card__like-button">
+            <span class="button__text">Like</span>
+          </button>
+        </div>
+
+        <div class="layble">
+          <p class="layble__text">&lt;/HTML&gt;</p>
+        </div>
 
       </section>
       <section></section>
@@ -44,6 +49,16 @@
       <section></section>
       <section></section>
       <section></section>
+
+      <section class="button-save__memory">
+        <button class="card__icon-button floppy__save">
+          <svg class="floppy__svg" width="28" height="28" aria-hidden="true">
+            <use href="./images/svg/floppy-svg.svg#floppy"></use>
+          </svg>
+          <span class="button__text">Сохранить на память</span>
+        </button>
+      </section>
+      
     </main>
     <script src="./scripts/like.js"></script>
   </body>

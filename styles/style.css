@@ -54,7 +54,8 @@
   display: grid;
   grid-template-rows: min-content;
   justify-content: center;
-  gap: 52px;
+  justify-items: center;
+  gap: 50px;
 }
 
 /*Cозд карточки*/
@@ -70,7 +71,7 @@
 
 .section__title {
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-main);
+  font-family: var(--font-main), sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
@@ -84,12 +85,25 @@
 
 .section__text {
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-main);
+  font-family: var(--font-main), sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
   text-align: left;
   padding: 25px;
+}
+
+.buttons {
+  justify-self: right;
+  padding-inline-end: 25px;
+  padding-block-end: 25px;
+  display: flex;
+}
+
+.card__icon-button {
+  border: none;
+  background-color: transparent;
+  padding-inline-end: 12px;
 }
 
 .card__like-button {
@@ -99,4 +113,51 @@
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   background: var(--main-background-color, rgba(255, 255, 255, 1));
   justify-self: right;
+}
+
+.button__text {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-accent),sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
+  text-align: left;
+}
+
+.layble {
+
+}
+
+.layble__text {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-accent),sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+
+
+
+
+
+
+.button-save__memory {
+  margin-block-end: 100px;
+}
+
+.floppy__save {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: clamp(306px, calc(0px + 100vw), 335px);
+  height: clamp(84px, calc(0px + 100vh), 55px);
+  padding: 15px 20px 15px 20px;
+  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  background: var(--main-background-color, rgba(255, 255, 255, 1));
 }
