@@ -2,7 +2,8 @@
 :root {
   --font-main:"Inter";
   --font-accent: "PressStart2P";
-  --font-weight-normal: 400;
+  --font-weight-section-text: 400;
+  --font-weight-section-title: 700;
   --font-weight-tobold: 900;
   --main-gradient:
   repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
@@ -11,5 +12,5 @@
   --main-color: #000;
   --main-background-color:#fff;
   --block-size-wigth: clamp(375px, calc(0px + 100vw), 700px);
-
+  --color-text-stroke: #fff;
 }

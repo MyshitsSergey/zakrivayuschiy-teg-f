@@ -11,12 +11,13 @@
 */
 
 .page {
-  font-family: var(--font-accent),sans-serif;
-  background-image: var(--main-gradient);
+  font-family: var(--font-accent, sans-serif);
+  background-image: var(--main-gradient, grey);
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: var(--font-weight-section-text, 700);
 }
 
 /*Секция Хедер*/
@@ -53,8 +54,8 @@
 .main {
   display: grid;
   grid-template-rows: min-content;
-  justify-content: center;
   justify-items: center;
+  justify-content: center;
   gap: 50px;
 }
 
@@ -62,94 +63,132 @@
 .section__content {
   display: grid;
   justify-content: center;
-  
   width: var(--block-size-wigth);
-  min-height: 785px;
+  /* min-height: 785px; */
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   background: var(--main-background-color, rgba(255, 255, 255, 1));
 }
 
 .section__title {
+  padding: 4px 10px;
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-main), sans-serif;
+  font-family: var(--font-main, sans-serif);
+  font-weight: var(--font-weight-section-title, 700);
   font-size: 18px;
-  font-weight: 700;
   line-height: 22px;
   text-align: left;
-  padding: 4px 10px;
+}
+
+.section-img_and_text {
+  position: relative;
 }
 
 .section__img {
   width: 100%;
 }
 
-.section__text {
+/*Надпись HTML в углу*/
+.layble__text {
+  position: absolute;
+  top: 25px;
+  left: 250px;
+  opacity: 0.5;
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-main), sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21px;
+  font-family: var(--font-accent, sans-serif);
+  font-weight: var(--font-weight-section-text, 400);
+  font-size: 14px;
+  line-height: 14px;
   text-align: left;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke: 1px var(--color-text-stroke);
+}
+
+
+/*Текст под картинкой*/
+.section__info {
+  display: grid;
+  gap: 25px;
   padding: 25px;
 }
 
-.buttons {
+.section__text {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-main, sans-serif);
+  font-weight: var(--font-weight-section-text, 400);
+  font-size: 18px;
+  line-height: 21px;
+  text-align: left;
+}
+
+/*Кнопки сердце и Like*/
+.buttons-like {
+  display: flex;
   justify-self: right;
   padding-inline-end: 25px;
   padding-block-end: 25px;
-  display: flex;
 }
 
 .card__icon-button {
   border: none;
+  /* padding-inline-end: 12px; */
   background-color: transparent;
-  padding-inline-end: 12px;
+
+  border: 2px solid transparent;
+  margin-inline-end: 7px;
 }
 
 .card__like-button {
+  justify-self: right;
   width: 130px;
   height: 38px;
-  padding: 9px 17px 9px 17px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  padding: 9px 17px 9px 17px;
   background: var(--main-background-color, rgba(255, 255, 255, 1));
-  justify-self: right;
+  cursor: pointer;
 }
 
 .button__text {
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-accent),sans-serif;
+  font-family: var(--font-accent, sans-serif);
+  font-weight: var(--font-weight-section-text, 400);
   font-size: 14px;
-  font-weight: 400;
   line-height: 90%;
   text-align: left;
 }
 
-.layble {
-
+.one__sprint-img {
+  filter: grayscale(0.8);
 }
 
-.layble__text {
-  color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-accent),sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 14px;
-  text-align: left;
-  text-transform: uppercase;
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
+.one-point__sprint-img {
+  filter: saturate(360%);
+}
+
+.two__sprint-img {
+  filter: hue-rotate(45deg);
+}
+
+.two-point-img {
+  filter: invert(80%);
+}
+
+.three__sprint-img {
+  filter: sepia(80%);
+}
+
+.three-point-img {
+  filter: blur(0.5rem);
+}
+
+.now__sprint-img {
+  filter: hue-rotate(-62deg) invert(108%);
 }
 
 
 
-
-
-
-.button-save__memory {
-  margin-block-end: 100px;
-}
-
-.floppy__save {
+/*Нижняя кнопка*/
+.button-floppy__save {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -157,7 +196,150 @@
   gap: 8px;
   width: clamp(306px, calc(0px + 100vw), 335px);
   height: clamp(84px, calc(0px + 100vh), 55px);
-  padding: 15px 20px 15px 20px;
+  margin-block-end: 100px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  padding: 15px 20px 15px 20px;
   background: var(--main-background-color, rgba(255, 255, 255, 1));
+  cursor: pointer;
+}
+
+/*Затемняем страницу*/
+dialog::backdrop {
+  opacity: 0.75;
+  background-color: var(--main-color, rgba(0, 0, 0, 1));
+  backdrop-filter: blur(7px);
+}
+
+.modal-window[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 341px;
+  height: 191px;
+  padding: 0px 35px;
+}
+
+.modal-svg-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.floppy__svg {
+  flex-shrink: 0;
+  /* fill: currentColor; */
+  /* fill: #fff; */
+  /* mix-blend-mode: difference; */
+}
+
+.modal__text {
+  color: var(--main-color, rgba(0, 0, 0, 1));
+  font-family: var(--font-accent, sans-serif);
+  font-weight: var(--font-weight-section-text, 400);
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/*Кнопка ок*/
+.button-ok {
+  width: 261px;
+  height: 38px;
+  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
+  padding: 9px 17px 9px 17px;
+  text-transform: uppercase;
+  background: var(--main-background-color, rgba(255, 255, 255, 1));
+  cursor: pointer;
+}
+
+/*Кнопки при focus*/
+.card__like-button:focus,
+.button-floppy__save:focus,
+.button-ok:focus {
+  box-shadow: 2px 2px 0px 0px #000;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button:focus-visible,
+.button-floppy__save:focus-visible,
+.button-ok:focus-visible {
+  box-shadow: 2px 2px 0px 0px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__icon-button:focus{
+  outline: none;
+  border: none;
+  border: 2px solid rgba(0, 0, 0, 1);
+  transition: 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid rgba(0, 0, 0, 1);
+  transition: 0.3s ease;
+}
+
+
+
+
+
+
+
+.card__like-button,
+.button-floppy__save,
+.button-ok {
+  position: relative; /*для позиционирования псевдоэлемента */
+  z-index: 1; /* Поднимает контент кнопки над псевдоэлементом */
+  overflow: hidden; /* Скрывает части псевдоэлемента, выходящие за границы */
+  background: var(--main-background-color, #fff);
+  transition: color 0.5s ease-in-out; /* Плавное изменение цвета текста */
+}
+
+/* Создаем псевдоэлемент */
+.card__like-button::before,
+.button-floppy__save::before,
+.button-ok::before {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Отправляет псевдоэлемент под контент кнопки */
+  width: 100%; /* Занимает всю ширину кнопки */
+  height: 100%; /* Занимает всю высоту кнопки */
+  background: var(--main-color, #000); 
+  transition: transform 0.5s ease-in-out; /* Плавная анимация трансформации */
+  transform: scaleX(0); /* Начальное состояние - сжато по горизонтали */
+  transform-origin: left; /* Точка начала трансформации - левый край */
+}
+
+/* Анимация при наведении */
+.card__like-button:hover::before,
+.button-floppy__save:hover::before,
+.button-ok:hover::before {
+  transform: scaleX(1); /* Конечное состояние - полная ширина */
+}
+
+/* Изменение цвета текста при наведении */
+.card__like-button:hover .button__text,
+.button-floppy__save:hover .button__text,
+.button-floppy__save:hover .floppy__svg,
+.button-ok:hover .button__text {
+  color: var(--main-background-color, #fff);
+  mix-blend-mode: difference; /* Создает контраст с фоном */
+}
+
+
+
+
+
+@media (min-width: 1024px) {
+  .layble__text {
+    left: 573px;
+  }
 }
