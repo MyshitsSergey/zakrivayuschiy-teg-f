@@ -273,14 +273,15 @@ dialog::backdrop {
   transition: box-shadow 0.3s ease;
 }
 
-.card__icon-button:focus{
+/* .card__icon-button:focus{
   outline: none;
   border: none;
   border: 2px solid rgba(0, 0, 0, 1);
   transition: 0.3s ease;
-}
+} */
 
 .card__icon-button:focus-visible {
+  outline: none;
   border: 2px solid rgba(0, 0, 0, 1);
   transition: 0.3s ease;
 }
@@ -333,6 +334,96 @@ dialog::backdrop {
   color: var(--main-background-color, #fff);
   mix-blend-mode: difference; /* Создает контраст с фоном */
 }
+
+/*Прячем искры от сердца*/
+.sparks {
+  opacity: 0;
+}
+
+/*контур*/
+.contour {
+  transition:fill 0.1s linear 0s;
+}
+
+/*основное тело*/
+.main-body {
+  transition: fill 0.3s linear 0s;
+}
+
+/*сердцевина*/
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+
+
+/*Состояние сердцевины при наведении*/
+.like-icon .heart:hover .core {
+  fill: var(--svg-contur-color, #000);
+  transition: 0.3s linear 0s;
+}
+
+.like-icon .heart:hover .main-body {
+  fill: var(--svg-contur-color, #000);
+  transition: 0.3s linear 0.05s;
+}
+
+
+
+
+/*Состояние сердцевины при нажатии*/
+.like-icon .heart:active .core {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0s;
+}
+
+.like-icon .heart:active .main-body {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0.05s;
+}
+
+
+
+
+
+/*Клик по кнопке лайка*/
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color, red);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0s;
+}
+
+.heart {
+  cursor: pointer;
+}
+
+.like-icon .heart {
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-animation 0.3s ease-in 0.1s 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-animation 0.3s ease-in 0.3s 1;
+}  
+
+
+/*hover при нажатом сердце*/
+ .like-icon.is-liked:hover .core {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0s;
+} 
 
 
 

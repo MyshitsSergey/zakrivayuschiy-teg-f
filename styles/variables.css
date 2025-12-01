@@ -13,4 +13,9 @@
   --main-background-color:#fff;
   --block-size-wigth: clamp(375px, calc(0px + 100vw), 700px);
   --color-text-stroke: #fff;
+
+  /*переменные svg*/
+  --svg-contur-color:#000; /*Цвет контура*/
+  --svg-sparks-color:#FF0000; /*Цвет искр*/
+  --animation-fill-color: #FF0000; /*Сердцевина сердца*/
 }
