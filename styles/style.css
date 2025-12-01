@@ -17,7 +17,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font-weight-section-text, 700);
+  font-variation-settings: "wght" 700;
 }
 
 /*Секция Хедер*/
@@ -300,7 +300,7 @@ dialog::backdrop {
   z-index: -1; /* Отправляет псевдоэлемент под контент кнопки */
   width: 100%; /* Занимает всю ширину кнопки */
   height: 100%; /* Занимает всю высоту кнопки */
-  background: var(--main-color, #000); 
+  background: var(--main-color, #000);
   transition: transform 0.5s ease-in-out; /* Плавная анимация трансформации */
   transform: scaleX(0); /* Начальное состояние - сжато по горизонтали */
   transform-origin: left; /* Точка начала трансформации - левый край */
