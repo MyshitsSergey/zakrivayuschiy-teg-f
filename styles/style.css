@@ -27,7 +27,7 @@
   align-content: center;
   gap: 20px;
   width: var(--block-size-wigth);
-  min-height: 327px;
+  height: var(--header-size-height);
   margin: 0 auto;
   margin-block: 100px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
@@ -56,7 +56,7 @@
   grid-template-rows: min-content;
   justify-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 54px;
 }
 
 /*Cозд карточки*/
@@ -64,7 +64,6 @@
   display: grid;
   justify-content: center;
   width: var(--block-size-wigth);
-  /* min-height: 785px; */
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   background: var(--main-background-color, rgba(255, 255, 255, 1));
 }
@@ -91,7 +90,7 @@
 .layble__text {
   position: absolute;
   top: 25px;
-  left: 250px;
+  left: clamp(250px, calc(63.37px + 49.77vw), 573px);
   opacity: 0.5;
   color: var(--main-color, rgba(0, 0, 0, 1));
   font-family: var(--font-accent, sans-serif);
@@ -104,12 +103,11 @@
   -webkit-text-stroke: 1px var(--color-text-stroke);
 }
 
-
 /*Текст под картинкой*/
 .section__info {
   display: grid;
   gap: 25px;
-  padding: 25px;
+  padding: 26px 26px 24px 26px;
 }
 
 .section__text {
@@ -126,22 +124,29 @@
   display: flex;
   justify-self: right;
   padding-inline-end: 25px;
-  padding-block-end: 25px;
+  padding-block-end: 23px;
+  align-items: center;
+  gap: 7px;
 }
 
 .card__icon-button {
+  display: flex; /* Для лучшего контроля размеров */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  padding: 0; /* Убираем внутренние отступы */
   border: none;
-  /* padding-inline-end: 12px; */
+  outline: none;
   background-color: transparent;
-
   border: 2px solid transparent;
-  margin-inline-end: 7px;
+  /* Высота равна высоте кнопки Like */
+  height: 38px; /* Высота кнопки Like (9px + 17px + 9px + 2px бордер сверху + 2px бордер снизу) */
+  min-height: 38px; /* Минимальная высота */
+  transition: border-color 0.3s ease; /* Переход для всех состояний рамки */
 }
 
 .card__like-button {
   justify-self: right;
   width: 130px;
-  height: 38px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   padding: 9px 17px 9px 17px;
   background: var(--main-background-color, rgba(255, 255, 255, 1));
@@ -185,8 +190,6 @@
   filter: hue-rotate(-62deg) invert(108%);
 }
 
-
-
 /*Нижняя кнопка*/
 .button-floppy__save {
   display: flex;
@@ -194,8 +197,6 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  width: clamp(306px, calc(0px + 100vw), 335px);
-  height: clamp(84px, calc(0px + 100vh), 55px);
   margin-block-end: 100px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   padding: 15px 20px 15px 20px;
@@ -231,9 +232,6 @@ dialog::backdrop {
 
 .floppy__svg {
   flex-shrink: 0;
-  /* fill: currentColor; */
-  /* fill: #fff; */
-  /* mix-blend-mode: difference; */
 }
 
 .modal__text {
@@ -273,24 +271,13 @@ dialog::backdrop {
   transition: box-shadow 0.3s ease;
 }
 
-/* .card__icon-button:focus{
+.card__icon-button:focus {
   outline: none;
-  border: none;
-  border: 2px solid rgba(0, 0, 0, 1);
-  transition: 0.3s ease;
-} */
-
-.card__icon-button:focus-visible {
-  outline: none;
-  border: 2px solid rgba(0, 0, 0, 1);
-  transition: 0.3s ease;
 }
 
-
-
-
-
-
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color, #000);
+}
 
 .card__like-button,
 .button-floppy__save,
@@ -355,8 +342,6 @@ dialog::backdrop {
   transition: fill 0.3s linear 0.03s;
 }
 
-
-
 /*Состояние сердцевины при наведении*/
 .like-icon .heart:hover .core {
   fill: var(--svg-contur-color, #000);
@@ -368,9 +353,6 @@ dialog::backdrop {
   transition: 0.3s linear 0.05s;
 }
 
-
-
-
 /*Состояние сердцевины при нажатии*/
 .like-icon .heart:active .core {
   fill: var(--animation-fill-color, red);
@@ -381,10 +363,6 @@ dialog::backdrop {
   fill: var(--animation-fill-color, red);
   transition: 0.3s linear 0.05s;
 }
-
-
-
-
 
 /*Клик по кнопке лайка*/
 .like-icon.is-liked .contour {
@@ -414,10 +392,10 @@ dialog::backdrop {
   animation: heart-animation 0.3s ease-in 0.1s 1;
 }
 
+/*появление искр*/
 .like-icon.is-liked .sparks {
   animation: sparks-animation 0.3s ease-in 0.3s 1;
 }  
-
 
 /*hover при нажатом сердце*/
  .like-icon.is-liked:hover .core {
@@ -425,12 +403,26 @@ dialog::backdrop {
   transition: 0.3s linear 0s;
 } 
 
-
-
-
-
 @media (min-width: 1024px) {
-  .layble__text {
-    left: 573px;
+  .header-title {
+    line-height: 65px;
+  }
+
+  .header-text {
+    line-height: 23px;
+  }
+
+  .main {
+    gap: 52px;
+  }
+ 
+  .button-floppy__save {
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+  }
+
+  .button-floppy__save {
+    padding: 10px 20px 11px 13px;
   }
 }

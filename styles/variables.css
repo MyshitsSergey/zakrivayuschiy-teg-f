@@ -12,6 +12,7 @@
   --main-color: #000;
   --main-background-color:#fff;
   --block-size-wigth: clamp(375px, calc(0px + 100vw), 700px);
+  --header-size-height: clamp(327px, 312.563px + 3.85vw, 368px);;
   --color-text-stroke: #fff;
 
   /*переменные svg*/
