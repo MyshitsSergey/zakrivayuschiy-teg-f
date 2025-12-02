@@ -11,8 +11,8 @@
 */
 
 .page {
-  font-family: var(--font-accent, sans-serif);
-  background-image: var(--main-gradient, grey);
+  font-family: var(--font-accent, fantasy);
+  background-image: var(--main-gradient, linear-gradient(#f0f0f0, #333333));
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 320px;
@@ -27,7 +27,7 @@
   align-content: center;
   gap: 20px;
   width: var(--block-size-wigth);
-  height: var(--header-size-height);
+  min-height: 327px;
   margin: 0 auto;
   margin-block: 100px;
   border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
@@ -64,22 +64,25 @@
   display: grid;
   justify-content: center;
   width: var(--block-size-wigth);
-  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
-  background: var(--main-background-color, rgba(255, 255, 255, 1));
+  border: 2px solid var(--main-color, #000);
+  background: var(--main-background-color, #fff);
 }
 
 .section__title {
   padding: 4px 10px;
   color: var(--main-color, rgba(0, 0, 0, 1));
   font-family: var(--font-main, sans-serif);
-  font-weight: var(--font-weight-section-title, 700);
   font-size: 18px;
   line-height: 22px;
   text-align: left;
+  font-variation-settings: "wght" var(--font-weight-section-title, 715);
 }
 
 .section-img_and_text {
   position: relative;
+  border-block-start: 2px solid #000;
+  overflow: hidden;
+  border-block-end: 2px solid #000;
 }
 
 .section__img {
@@ -93,21 +96,25 @@
   left: clamp(250px, calc(63.37px + 49.77vw), 573px);
   opacity: 0.5;
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-accent, sans-serif);
+  font-family: var(--font-accent, fantasy);
   font-weight: var(--font-weight-section-text, 400);
   font-size: 14px;
   line-height: 14px;
   text-align: left;
   text-transform: uppercase;
+  text-shadow: 
+    1px 1px 0 var(--color-text-stroke, #fff),
+    -1px 1px 0 var(--color-text-stroke, #fff),
+    1px -1px 0 var(--color-text-stroke, #fff),
+    -1px -1px 0 var(--color-text-stroke, #fff);
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
-  text-stroke:1px var(--color-text-stroke, #fff);
 }
 
 @supports (-webkit-text-stroke: 1px var(--color-text-stroke, #fff)) or (text-stroke: 1px var(--color-text-stroke, #fff)) {
   .layble__text {
-    /* Убираем только стандартное свойство, если поддерживается -webkit-text-stroke */
-    text-stroke: none;
+    text-shadow: none; /* Убираем text-shadow, так как есть более качественная альтернатива */
+    -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
+    text-stroke: 1px var(--color-text-stroke, #fff);
   }
 }
 
@@ -115,58 +122,70 @@
 .section__info {
   display: grid;
   gap: 25px;
-  padding: 26px 26px 24px 26px;
+  padding: 22px 26px 24px 26px;
 }
 
 .section__text {
   color: var(--main-color, rgba(0, 0, 0, 1));
   font-family: var(--font-main, sans-serif);
-  font-weight: var(--font-weight-section-text, 400);
   font-size: 18px;
   line-height: 21px;
   text-align: left;
+  font-variation-settings: "wght" var(--font-weight-section-text, 410);
 }
 
 /*Кнопки сердце и Like*/
 .buttons-like {
   display: flex;
   justify-self: right;
-  padding-inline-end: 25px;
-  padding-block-end: 23px;
   align-items: center;
   gap: 7px;
+  padding-inline-end: 25px;
+  padding-block-end: 23px;
 }
 
+/*все кнопки*/
+.button {
+  position: relative; /*для позиционирования псевдоэлемента */
+  z-index: 1; /* Поднимает контент кнопки над псевдоэлементом */
+  border: 2px solid var(--main-color, #000);
+  overflow: hidden; /* Скрывает части псевдоэлемента, выходящие за границы */
+  background: var(--main-background-color, #fff);
+  transition: color 0.5s ease-in-out; /* Плавное изменение цвета текста */
+  cursor: pointer;
+}
+
+/*иконка сердца*/
 .card__icon-button {
   display: flex; /* Для лучшего контроля размеров */
-  align-items: center; /* Центрируем содержимое по вертикали */
   justify-content: center; /* Центрируем содержимое по горизонтали */
-  padding: 0; /* Убираем внутренние отступы */
-  outline: none;
-  background-color: transparent;
-  border: 2px solid transparent;
+  align-items: center; /* Центрируем содержимое по вертикали */
   /* Высота равна высоте кнопки Like */
   height: 38px; /* Высота кнопки Like (9px + 17px + 9px + 2px бордер сверху + 2px бордер снизу) */
   min-height: 38px; /* Минимальная высота */
+  border: 2px solid transparent;
+  padding: 0; /* Убираем внутренние отступы */
+  outline: none;
+  background-color: transparent;
   transition: border-color 0.3s ease; /* Переход для всех состояний рамки */
 }
 
 .card__like-button {
   justify-self: right;
   width: 130px;
-  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   padding: 9px 17px 9px 17px;
-  background: var(--main-background-color, rgba(255, 255, 255, 1));
-  cursor: pointer;
 }
 
 .button__text {
-  color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-accent, sans-serif);
-  font-weight: var(--font-weight-section-text, 400);
+  position: relative; /* Для поднятия над псевдоэлементом */
+  z-index: 1; /* Чтобы текст был над псевдоэлементом */
+  color: var(--button-text-color, #fff);
+  font-family: var(--font-accent, fantasy);
   font-size: 14px;
   line-height: 90%;
   text-align: left;
+  font-variation-settings: "wght" var(--font-weight-section-text, 410);
+  mix-blend-mode: difference; /* Добавить это свойство */
 }
 
 .one__sprint-img {
@@ -205,10 +224,7 @@
   align-items: center;
   gap: 8px;
   margin-block-end: 100px;
-  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   padding: 15px 20px 15px 20px;
-  background: var(--main-background-color, rgba(255, 255, 255, 1));
-  cursor: pointer;
 }
 
 /*Затемняем страницу*/
@@ -225,7 +241,7 @@ dialog::backdrop {
   align-items: center;
   gap: 30px;
   width: 341px;
-  height: 191px;
+  min-height: 191px;
   padding: 0px 35px;
 }
 
@@ -239,11 +255,13 @@ dialog::backdrop {
 
 .floppy__svg {
   flex-shrink: 0;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
 }
 
 .modal__text {
   color: var(--main-color, rgba(0, 0, 0, 1));
-  font-family: var(--font-accent, sans-serif);
+  font-family: var(--font-accent, fantasy);
   font-weight: var(--font-weight-section-text, 400);
   font-size: 14px;
   line-height: 150%;
@@ -255,27 +273,8 @@ dialog::backdrop {
 .button-ok {
   width: 261px;
   height: 38px;
-  border: 2px solid var(--main-color, rgba(0, 0, 0, 1));
   padding: 9px 17px 9px 17px;
   text-transform: uppercase;
-  background: var(--main-background-color, rgba(255, 255, 255, 1));
-  cursor: pointer;
-}
-
-/*Кнопки при focus*/
-.card__like-button:focus,
-.button-floppy__save:focus,
-.button-ok:focus {
-  box-shadow: 2px 2px 0px 0px #000;
-  outline: none;
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button:focus-visible,
-.button-floppy__save:focus-visible,
-.button-ok:focus-visible {
-  box-shadow: 2px 2px 0px 0px #000;
-  transition: box-shadow 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -286,20 +285,20 @@ dialog::backdrop {
   border-color: var(--accent-color, #000);
 }
 
-.card__like-button,
-.button-floppy__save,
-.button-ok {
-  position: relative; /*для позиционирования псевдоэлемента */
-  z-index: 1; /* Поднимает контент кнопки над псевдоэлементом */
-  overflow: hidden; /* Скрывает части псевдоэлемента, выходящие за границы */
-  background: var(--main-background-color, #fff);
-  transition: color 0.5s ease-in-out; /* Плавное изменение цвета текста */
+.button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--button-text-color, #fff);
+  font-family: var(--font-accent, fantasy);
+  font-size: 14px;
+  line-height: 90%;
+  text-align: left;
+  font-variation-settings: "wght" var(--font-weight-section-text, 410);
+  mix-blend-mode: difference;
 }
 
 /* Создаем псевдоэлемент */
-.card__like-button::before,
-.button-floppy__save::before,
-.button-ok::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -314,20 +313,14 @@ dialog::backdrop {
 }
 
 /* Анимация при наведении */
-.card__like-button:hover::before,
-.button-floppy__save:hover::before,
-.button-ok:hover::before {
+.button:hover::before {
   transform: scaleX(1); /* Конечное состояние - полная ширина */
 }
 
-/* Изменение цвета текста при наведении */
-.card__like-button:hover .button__text,
-.button-floppy__save:hover .button__text,
-.button-floppy__save:hover .floppy__svg,
-.button-ok:hover .button__text {
+ /* Изменение цвета текста при наведении */
+.button:hover .button__text {
   color: var(--main-background-color, #fff);
-  mix-blend-mode: difference; /* Создает контраст с фоном */
-}
+} 
 
 /*Прячем искры от сердца*/
 .sparks {
@@ -350,23 +343,23 @@ dialog::backdrop {
 }
 
 /*Состояние сердцевины при наведении*/
-.like-icon .heart:hover .core {
+.like-icon:hover .core {
   fill: var(--svg-contur-color, #000);
   transition: 0.3s linear 0s;
 }
 
-.like-icon .heart:hover .main-body {
+.like-icon:hover .main-body {
   fill: var(--svg-contur-color, #000);
   transition: 0.3s linear 0.05s;
 }
 
 /*Состояние сердцевины при нажатии*/
-.like-icon .heart:active .core {
+.like-icon:active .core {
   fill: var(--animation-fill-color, red);
   transition: 0.3s linear 0s;
 }
 
-.like-icon .heart:active .main-body {
+.like-icon:active .main-body {
   fill: var(--animation-fill-color, red);
   transition: 0.3s linear 0.05s;
 }
@@ -410,7 +403,16 @@ dialog::backdrop {
   transition: 0.3s linear 0s;
 } 
 
+ .like-icon.is-liked:hover .main-body {
+  fill: var(--animation-fill-color, red);
+  transition: 0.3s linear 0s;
+ }
+
 @media (min-width: 1024px) {
+  .header {
+  min-height: 367px;
+  }
+
   .header-title {
     line-height: 65px;
   }
@@ -422,6 +424,10 @@ dialog::backdrop {
   .main {
     gap: 52px;
   }
+
+  .section__info {
+    padding: 22px 26px 24px 26px;
+  } 
  
   .button-floppy__save {
    flex-direction: row;

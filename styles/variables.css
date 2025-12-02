@@ -2,9 +2,8 @@
 :root {
   --font-main:"Inter";
   --font-accent: "PressStart2P";
-  --font-weight-section-text: 400;
-  --font-weight-section-title: 700;
-  --font-weight-tobold: 900;
+  --font-weight-section-text: 410;
+  --font-weight-section-title: 715;
   --main-gradient:
   repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, transparent 2px 4px),
@@ -12,8 +11,10 @@
   --main-color: #000;
   --main-background-color:#fff;
   --block-size-wigth: clamp(375px, calc(0px + 100vw), 700px);
-  --header-size-height: clamp(327px, 312.563px + 3.85vw, 368px);
   --color-text-stroke: #fff;
+  --button-text-color: #fff; /* Цвет текста в кнопках */
+  --accent-color: #000; /* Акцентный цвет для фокуса */
+
   /*переменные svg*/
   --svg-contur-color:#000; /*Цвет контура*/
   --svg-sparks-color:#FF0000; /*Цвет искр*/
