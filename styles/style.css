@@ -101,7 +101,7 @@
   text-transform: uppercase;
   mix-blend-mode: hard-light;
   -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
-  text-stroke:1px var(--color-text-stroke, #fff); 
+  text-stroke:1px var(--color-text-stroke, #fff);
 }
 
 @supports (-webkit-text-stroke: 1px var(--color-text-stroke, #fff)) or (text-stroke: 1px var(--color-text-stroke, #fff)) {
@@ -427,9 +427,6 @@ dialog::backdrop {
    flex-direction: row;
    justify-content: flex-start;
    align-items: center;
-  }
-
-  .button-floppy__save {
-    padding: 10px 20px 11px 13px;
+   padding: 10px 20px 11px 13px;
   }
 }
