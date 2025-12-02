@@ -100,7 +100,15 @@
   text-align: left;
   text-transform: uppercase;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--color-text-stroke);
+  -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
+  text-stroke:1px var(--color-text-stroke, #fff); 
+}
+
+@supports (-webkit-text-stroke: 1px var(--color-text-stroke, #fff)) or (text-stroke: 1px var(--color-text-stroke, #fff)) {
+  .layble__text {
+    /* Убираем только стандартное свойство, если поддерживается -webkit-text-stroke */
+    text-stroke: none;
+  }
 }
 
 /*Текст под картинкой*/
@@ -134,7 +142,6 @@
   align-items: center; /* Центрируем содержимое по вертикали */
   justify-content: center; /* Центрируем содержимое по горизонтали */
   padding: 0; /* Убираем внутренние отступы */
-  border: none;
   outline: none;
   background-color: transparent;
   border: 2px solid transparent;
@@ -293,7 +300,7 @@ dialog::backdrop {
 .card__like-button::before,
 .button-floppy__save::before,
 .button-ok::before {
-  content: ''; 
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
