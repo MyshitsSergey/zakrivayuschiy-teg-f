@@ -285,18 +285,6 @@ dialog::backdrop {
   border-color: var(--accent-color, #000);
 }
 
-.button__text {
-  position: relative;
-  z-index: 1;
-  color: var(--button-text-color, #fff);
-  font-family: var(--font-accent, fantasy);
-  font-size: 14px;
-  line-height: 90%;
-  text-align: left;
-  font-variation-settings: "wght" var(--font-weight-section-text, 410);
-  mix-blend-mode: difference;
-}
-
 /* Создаем псевдоэлемент */
 .button::before {
   content: '';
