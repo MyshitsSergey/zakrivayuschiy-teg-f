@@ -17,7 +17,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" var(--font-weight-section-text), var(--font-weight-section-title);
 }
 
 /*Секция Хедер*/
