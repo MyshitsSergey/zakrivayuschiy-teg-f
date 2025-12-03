@@ -4,6 +4,7 @@
   --font-accent: "PressStart2P";
   --font-weight-section-text: 410;
   --font-weight-section-title: 715;
+  --font-accent-weight: 400;
   --main-gradient:
   repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, transparent 2px 4px),
